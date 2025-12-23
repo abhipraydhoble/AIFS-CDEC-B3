@@ -103,7 +103,7 @@ docker --version
 ## example:
 - Dockerfile
 - vim Dockerfile
-````
+
 ```dockerfile
 FROM ubuntu
 RUN  apt update -y
