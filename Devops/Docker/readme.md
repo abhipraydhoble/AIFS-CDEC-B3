@@ -33,24 +33,13 @@ ${\color{lightblue}{\textbf{Docker}}}$ is an **open-source containerization plat
 * ✔ ${\color{Green}{Faster deployments}}$
 * ✔ ${\color{Green}{Resource efficiency}}$
 
----
-
-# $${\color{lightblue}{\textbf{📌 Application Example}}}$$
-
-### $${\color{purple}{\textbf{Our Tech Stack}}}$$
-
-* **Frontend:** React 19
-* **Backend:** Java 17 + Tomcat 9.109
-* **Database:** MariaDB 8.4
-
-Docker allows each to run inside separate **containers**.
 
 ---
 
 # $${\color{cyan}{\textbf{📌 Docker Workflow}}}$$
 
 ```
-Dockerfile → Docker Image → DockerHub → Container
+Dockerfile → Docker Image → Container
 ```
 
 ---
@@ -80,12 +69,6 @@ A **template** that includes:
 
 ---
 
-## $${\color{lightgreen}{\textbf{3️⃣ DockerHub}}}$$
-
-A cloud **registry** to store and share images.
-
----
-
 ## $${\color{lightgreen}{\textbf{4️⃣ Container}}}$$
 
 A **running instance** of a Docker image.
@@ -98,25 +81,7 @@ Before Docker:
 Environment → Install software manually (slow & error-prone)
 
 With Docker:
-Environment → Install Docker → Run container → Done 🎯
-
-```
-DEV:   Instance → Docker → Image → Container
-TEST:  Instance → Docker → Image → Container
-UAT:   Instance → Docker → Image → Container
-PROD:  Instance → Docker → Image → Container
-```
-
 Same image → Same result → No mismatch ✔
-
-
-# Diff Monolithic vs Microservises Architecture
-<img width="1281" height="601" alt="image" src="https://github.com/user-attachments/assets/b6704028-f9e4-4331-a65c-aff79077393a" />
-<img width="1175" height="678" alt="image" src="https://github.com/user-attachments/assets/537434ed-6c7b-4d71-a247-bb61cfff4279" />
-<img width="1285" height="575" alt="image" src="https://github.com/user-attachments/assets/6f20b98e-64a5-4ec5-a680-0740ee1b395e" />
-<img width="1365" height="547" alt="image" src="https://github.com/user-attachments/assets/52c25be2-c2e0-4806-a3cb-b54636237476" />
-<img width="1542" height="593" alt="image" src="https://github.com/user-attachments/assets/02800600-5a46-4ca0-9b17-8b6e76bbb625" />
-
 
 
 ##  ${\color{lightblue} \textbf{Installation-Steps  \ (Ubuntu)}}$ 
@@ -134,3 +99,33 @@ sudo chmod 777 /var/run/docker.sock
 ````
 docker --version
 ````
+
+## example:
+- Dockerfile
+- vim Dockerfile
+````
+```dockerfile
+FROM ubuntu
+RUN  apt update -y
+RUN  apt install apache2 -y
+COPY index.html  /var/www/html/
+CMD ["apachectl", "-D", "FOREGROUND"]
+```
+- Docker Image
+````
+docker build -t image1 .
+````
+- list docker images
+````
+docker images
+````
+- Docker Container
+````
+docker run -itd --name cont1 -p 80:80 image1
+````
+- list running containers
+````
+docker ps
+````
+
+
