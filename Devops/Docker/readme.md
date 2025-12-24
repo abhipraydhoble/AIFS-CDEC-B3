@@ -127,5 +127,34 @@ docker run -itd --name cont1 -p 80:80 image1
 ````
 docker ps
 ````
-
+````
+docker ps -a
+````
+- pull image from dockerhub
+````
+docker pull nginx
+````
+````
+docker pull abhipraydh96/super-mario
+````
+- stop running cont
+````
+docker stop containerid/name
+````
+- remove cont
+````
+docker rm -f contname/id
+````
+- container info
+````
+docker inspect contname
+````
+- container login
+````
+docker exec -it contname   /bin/bash
+````
+- exit from cont
+````
+exit
+````
 
